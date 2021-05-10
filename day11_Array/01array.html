@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //join
+        var arr = [1, 2, 3, 4, 5];
+        res_join = arr.join(",");
+        console.log(res_join);
+
+        var arr2 = [6, 7];
+        var arr3 = [8, 9];
+
+        //concat
+        res_concat1 = arr.concat(arr2); //返回拼接后数组
+        console.log(res_concat1);
+        res_concat2 = arr.concat(arr2, arr3); //返回拼接后数组
+        console.log(res_concat2);
+
+        //reverse
+        res_reverse = res_concat2.reverse();
+        console.log(res_reverse);
+
+    </script>
+</body>
+</html>

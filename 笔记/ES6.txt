@@ -1,0 +1,139 @@
+es6(es2015)
+ECMAScript 6.0
+
+es6核心常用知识
+一. 变量定义变化let/const
+let 1 不允许重复定义变量
+    2 不存在变量提升
+    3 块级作用域
+const 用于定义常量
+
+var arr = [];
+for(var i = 0; i < 2; i++) {
+    arr[i] = function() {
+        console.log(i);
+    }
+}
+arr[0](); //0
+arr[1](); //1
+
+    var           let            const
+函数级作用域    块级作用域        块级作用域
+  变量提升    不存在变量提升    不存在变量提升
+ 值可以改变     值可以改变        值不能改变
+
+二. 解构赋值(./day53_异步_promise/解构赋值.js)
+//Array的解构赋值
+let [a, b, c] = [1, 2, 3];
+console.log(a, b, c);
+//对象的解构赋值
+let {name:userName, age} = {name: 'Jack', age: 18};
+console.log(userName, age);
+//复杂对象的解构赋值
+let [{age:useAge}, {hobby}] = [{name: 'Tom', age: 17}, {hobby: ['sleeping', 'eating']}];
+console.log(useAge, hobby);
+//省略解构
+let [,,d] = [4, 5, 6];
+console.log(d);
+//默认解构
+let {name:userName2, age:userAge2 = 8} = {name: 'luky', age: 18};
+console.log(userName2, userAge2);
+
+//解构赋值应用
+function ajax(options) {
+    var method = options.method || 'get';
+}
+
+function ajax({method = 'get', data}) {
+
+}
+
+ajax(
+    {
+        method: 'post',
+        data: {
+            'a': 10,
+            'b': 20
+        }
+    }
+);
+
+三. 模板字符串(./day53_异步_promise/模板字符串.js)
+let name = 'Jack';
+let age = 18;
+let str = `My name is ${name}, i am ${age} years old.`;
+
+let str1 = 'My name is ${name}, i am ${age} years old.';
+str1 = str1.replace(/\$\{(\w*)\}/, function() {
+    return eval(arguments[1]);
+});
+
+四. 函数
+//默认参数
+function(a, b, c = 10) {}
+//展开运算符
+let arr = [2, 4, 5, 2]
+Math.max(...arr);
+//剩余运算符
+function print(a, ...b) {}
+print(1, 2, 3, 4, 5, 6) -> a = 1, b = [2, 3, 4, 5, 6]
+//函数多了一个name属性
+
+//箭头函数 arg => arg === 0;
+//箭头函数没有this，导致箭头函数this是外层代码块this
+
+五. 数组新增api
+push
+unshift
+pop
+shift
+slice
+splice
+indexOf
+lastIndexOf
+concat
+join
+toString
+forEach
+find
+findIndex
+map
+filter
+reduce
+some
+every
+Array.isArray()
+Array.from()
+Array.of()
+copyWithin()
+fill()
+
+六. 对象新变化
+//对象属性简写
+let name = 'along';
+let age = 33;
+let person = {
+    name, // name: name
+    age // age: age
+    work() {
+        console.log('working hard!');
+    }
+}
+Object.is(1, 1); //判断两个值是否相等
+Object.assign(newObj, nameObj, ageObj); //多个对象属性复制到一个对象中
+Object.setPrototypeOf(); //设置对象原型__proto__
+Object.getPrototypeOf(); //获取对象原型__proto__
+
+// __proto__设置原型
+let obj = {
+    __proto__: nameObj
+}
+// super
+let obj = { name: 'along' }
+let obj1 = {
+    __proto__: obj,
+    name: 'it',
+    getName() {
+        return super.name; //super可以调用prototype上的属性和方法
+    }
+}

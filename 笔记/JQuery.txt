@@ -1,0 +1,111 @@
+JQuery(jQ)
+    html+css+js
+1 jQ 是一个js库，封装了大量的特定的集合（函数和方法）
+    如animate()、css()、show()等
+2 使用jQ大大提高开发效率，简化dom操作
+    常见的js库 jQuery YUI Dojo ExtJs zepto
+
+3 jQuery选择器
+    $(selector)
+    筛选方法:
+    1. parent()                $('li').parent()                    找父元素
+    2. children(selector)      $('ul').children('li')              找li子元素
+    3. find(selector)          $('ul').find('p')                   找p子孙元素
+    4. siblings(selector)       $('ul').sibling('li')               找li兄弟元素
+    5. nextAll()               $('ul').nextAll()                   找当前元素的后兄弟元素
+    6. prevAll()               $('ul').prevAll()                   找当前元素的前兄弟元素
+    7. hasClass()              $('div').hasClass('demo')           当前元素是否有class类
+    8. eq(index)               $('li').eq(2) === $('li:eq(2)')     找eq(2)的元素
+
+4 jQuery处理样式
+    css()
+    addClass()/removeClass()/toggleClass()/hasClass()
+
+5 jQuery动画效果
+    显示与隐藏 show()/hide()/toggle()
+    滑动 slideDown()/slideUp()/slideToggle()
+    淡入淡出 fadeIn()/fadeOut()/fadeToggle()/fadeTo()
+    自定义 animate()动画 
+
+6 jQuery属性操作
+    prop() ---设置或获取元素固有的属性
+    attr() ---操作元素自定义属性
+    data() ---可以在指定元素上存取数据
+
+7 jQuery操作文本
+    html()-->innerHTML
+    text()-->innerText
+    val()-->value
+
+8 jQuery元素操作
+    1 元素遍历
+        $('div').each(function(index, elem) {
+            //elem 是DOM对象 -->$(elem)
+        });
+
+        $.each(object, function(index, elem) {
+            //elem 是DOM对象 -->$(elem)
+            //object 可以是数组 对象 jQuery元素等集合
+        });
+    2 创建元素
+        $('<li></li>')
+    3 添加元素
+        append()
+        prepend()
+        appendTo()
+        after()
+        before()
+    4 删除元素
+        remove()
+        empty() $('ul').html('')
+
+9 jQuery事件处理
+    1 事件方法
+        $('').click(function() {})
+        $('').mouseenter(function() {})
+        ...
+    2 on方法
+        $('').on('click mouseenter', function() {})
+        $('').on({
+            click: function() {},
+            mouseenter: function() {}
+        });
+        事件委托 事件, 触发元素
+        $('ul').on('click', 'li', function() {
+
+        });
+    3 off事件
+        $('').off() 移出所以事件
+        解除事件委托
+        $('ul').off('click', 'li')
+    4 事件自动触发
+        方法一: $('button').click() 触发click事件
+        方法二: $('button').trigger('click') 触发button元素的click事件
+        方法三: $('button').triggerHandler('click') 触发button元素的click事件并清除默认行为event.preventDefault()
+
+10 jQuery常用方法
+    1 浅层拷贝
+        $.extend(obj1, obj2) obj2 --> obj1
+    2 深层拷贝
+        $.extend(true, obj1, obj2) obj2 --> obj1
+
+    3 $.noConflict() 更改$, jQuery 对象名称
+
+11 元素尺寸
+    width() width
+    height()
+    innerWidth() width + padding
+    innerHeight()
+    outerWidth() width + padding + border
+    outerHeight() 
+    outerWidth(true) width + padding + border + margin
+    outerHeight(true)
+12 offset&position&scroll
+    offset() 返回一个对象 对象有left top 属性
+    position()
+    scrollTop()/scrollLeft()
+
+
+
+    
+

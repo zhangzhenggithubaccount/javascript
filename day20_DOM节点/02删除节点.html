@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <input type="button" value="反选" id="del" />
+    <div class="box"></div>
+
+    <script>
+
+        let emt = document.getElementsByClassName("box")[0];
+        let del = document.getElementById("del");
+        del.onclick = function() {
+            if (!emt) {
+                emt = document.createElement("div");
+                emt.className = 'box';
+                document.body.appendChild(emt);
+                emt.onclick = function() {
+                    this.remove();
+                    emt = null;
+                 }
+            }else {
+                //从body中删除emt节点
+                document.body.removeChild(emt);
+                emt = null;
+            }
+        }
+        emt.onclick = function() {
+            //删除本节点
+            this.remove();
+            emt = null;
+        }
+
+    </script>
+
+</body>
+</html>

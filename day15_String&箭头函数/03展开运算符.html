@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        let arr1 = [10, 20, 30];
+        let arr2 = [2, 4, 6];
+
+        console.log(arr1.concat(arr2));
+
+        //...array 对数组中元素进行展开
+        let newArr = [...arr1, ...arr2];
+        console.log(newArr);
+
+        let uname = {
+            name: 'zs'
+        }
+        let age = {
+            age: 30
+        }
+
+        //对对象中元素进行展开
+        let stu = {...uname, ...age};
+        console.log(stu);
+
+        function max(arr) {
+            console.log(...arguments);
+            return Math.max(...arr);
+        }
+
+        console.log(max([1, 2, 3, 4, 5, 6, 7]));
+
+    </script>
+
+</body>
+</html>

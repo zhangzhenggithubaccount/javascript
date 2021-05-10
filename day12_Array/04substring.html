@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //substr(start, length)
+        //substring(start, end) start和end大小不限制
+        //slice() 与数组 slice() 用法类似
+        //以上三个方法假如只传一个参数，作用等价
+        //1. substr
+        var str = "hello world!";
+        var subStr1 = str.substr(6);
+        var subStr2 = str.substr(6, 5);
+
+        console.log(subStr1);
+        console.log(subStr2);
+
+        //2. substring
+        var subString1 = str.substring(6);
+        var subString2 = str.substring(6, 11);
+
+        console.log(subString1);
+        console.log(subString2);
+
+        //3. split
+        var strs = str.split(" ");
+        console.log(strs);
+        console.log(strs.join(" "));
+
+        //4. replace
+        var str2 = "tmd, hello world, tmd, faking world!"
+        str2 = str2.replace("tmd", "***");
+
+        console.log(str2);
+
+        //5. 全部替换
+        var str3 = "tmd, hello world, tmd, faking world!"
+        var words = ["tmd", "faking"];
+        for(var i = 0; i < words.length; i++) {
+            str3 = str3.split(words[i]).join("***");
+        }
+        console.log(str3);
+
+    </script>
+
+</body>
+</html>

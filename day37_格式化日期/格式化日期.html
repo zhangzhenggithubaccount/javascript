@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function formatDate(t,str){
+            let yyyy = t.getFullYear();
+            let yy = String(t.getFullYear()).slice(-2);
+            let MM = String(t.getMonth() + 1).padStart(2, '0');
+            let M = t.getMonth() + 1;
+            let dd = String(t.getDate()).padStart(2, '0');
+            let d = t.getDate();
+            let HH = String(t.getHours()).padStart(2, '0');
+            let h = t.getHours();
+            let mm = String(t.getMinutes()).padStart(2, '0');
+            let m = t.getMinutes();
+            let ss = String(t.getSeconds()).padStart(2, '0');
+            let s = t.getSeconds();
+            let w = function() {
+                let week = ['日', '一', '二', '三', '四', '五', '六'];
+                return week[t.getDay()];
+            }();
+
+            str = str.replace('yyyy', yyyy)
+            str = str.replace('yy', yy)
+            str = str.replace('MM', MM)
+            str = str.replace('M', M)
+            str = str.replace('dd', dd)
+            str = str.replace('d', d)
+            str = str.replace('HH', HH)
+            str = str.replace('h', h)
+            str = str.replace('mm', mm)
+            str = str.replace('m', m)
+            str = str.replace('ss', ss)
+            str = str.replace('s', s)
+            str = str.replace('w', w);
+            return str;
+
+        }
+
+        function valid1() { 
+            var localOffset = new Date().getTimezoneOffset()*60*1000; 
+            var sResult = formatDate(new Date(1409894060000+localOffset), 'yyyy-MM-dd HH:mm:ss 星期w');
+            console.log(sResult); 
+            return sResult === '2014-09-05 05:14:20 星期五'; 
+        }
+        let flag = valid1();
+        console.log(flag);
+    </script>
+
+</body>
+</html>

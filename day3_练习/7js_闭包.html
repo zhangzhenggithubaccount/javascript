@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        function makeClosures(arr, fn){
+            var res = [];
+            for(var i = 0; i < arr.length; i++) {
+                res.push(function(){ 
+                    return fn(arr[i]); 
+                })
+            }
+            return res;
+        }
+        arr = [1, 2, 3, 4];
+        fn = function(x) { 
+            return x * x;
+        };
+
+        console.log(makeClosures(arr, fn));
+        console.log(makeClosures(arr, fn)[0]);
+
+
+        function makeClosures2(arr, fn) {
+            var res = [];
+            for(var i = 0; i < arr.length; i++) {
+                res[i] = fn.bind(this, arr[i]);
+            }
+            return res;
+        }
+        
+        //bind 返回函数
+        //apply 返回执行结果
+        // console.log(makeClosures2(arr, fn));
+        // console.log(makeClosures2(arr, fn)[0]);
+
+        // console.log(fn.bind(null, arr[2])());
+
+        function makeClosures3(arr, fn) {
+            var res = [];
+            arr.forEach(
+                function(e) {
+                    res.push(
+                        function (num){
+                            return function () {
+                                return fn(num);
+                            };
+                        }(e));
+                }
+            );
+            return res;
+        }
+
+        console.log(makeClosures3(arr, fn));
+        console.log(makeClosures3(arr, fn)[3]);
+    </script>
+</body>
+</html>

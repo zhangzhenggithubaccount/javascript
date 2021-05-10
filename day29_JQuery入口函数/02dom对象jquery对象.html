@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery.min.js"></script>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">1</div>
+
+    <script>
+        
+        let box = document.querySelector('.box');
+        let $box = $('.box');
+        console.log(box); // <div class="box"></div>
+        console.log($box); // jQuery.fn.init [div.box, prevObject: jQuery.fn.init(1)]
+
+        //DOM对象转jQuery对象 $(DOM对象)
+        console.log($(box));
+
+        //jQuery对象转DOM对象 $('div')[index] 或 $('div')get(index)
+        console.log($('div')[0].innerHTML);
+        console.log($('div').get(0));
+
+        jQuery(function() {
+            $box.hide(2000);
+        });
+
+        // $ === jQuery
+        // $ 是顶级对象
+    </script>
+</body>
+</html>

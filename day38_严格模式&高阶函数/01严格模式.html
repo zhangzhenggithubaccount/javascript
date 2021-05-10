@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        'use strict';
+        /*
+        严格模式
+        1 严格模式禁止变量没有声明就赋值 变量必须先定义后赋值
+            (function() {
+                num = 10;
+            })();
+        2 禁止删除已经声明的变量
+            let num = 0;
+            delete num;
+        3 严格模式下 全局作用域中函数this是undefined
+          构造函数不加new this会报错
+        4 严格模式下 参数名不能重复
+            function fn(num1, num1) {
+                console.log(num1 + num1);
+            }
+        5 不允许在非函数代码块中定义函数
+        */
+        if(true){
+            function fn2() {
+                console.log(123);
+            }
+        }
+        fn2();
+
+    </script>
+
+</body>
+</html>

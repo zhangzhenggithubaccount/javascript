@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #parent {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding: 10px;
+        }
+        #son {
+            width: 150px;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(0, 0, 0, 0.4);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div id="parent">
+        <div id="son">
+            当地时间19日，为期两天的中美高层战略对话在美国安克雷奇结束。
+            这是拜登就任美国总统以来，中美高级官员首次举行面对面会谈。
+            从中方会后发布的信息看，中美双方围绕各自内外政策、
+            中美关系以及共同关心的重大国际地区问题，进行了坦诚、
+            深入、长时间、建设性的沟通，并都认为对话是及时的、有益的，
+            加深了相互理解。同时，双方在一些问题上仍存在重要分歧。
+        </div>
+    </div>
+
+    <script>
+        let parent = document.getElementById('parent');
+        let son = document.getElementById('son');
+
+        console.log('offset系列:');
+        console.log('offsetParent:' + son.offsetParent);
+        console.log('offsetWidth:' + son.offsetWidth);
+        console.log('offsetHeight:' + son.offsetHeight);
+        console.log('offsetLeft:' + son.offsetLeft);
+        console.log('offsetTop:' + son.offsetTop);
+
+        console.log('client系列:');
+        console.log('clientWidth:' + son.clientWidth);
+        console.log('clientHeight:' + son.clientHeight);
+        console.log('clientLeft:' + son.clientLeft);
+        console.log('clientTop:' + son.clientTop);
+
+        console.log('scroll系列:');
+        console.log('scrollWidth:' + son.scrollWidth);
+        console.log('scrollHeight:' + son.scrollHeight);
+        console.log('scrollLeft:' + son.scrollLeft);
+        console.log('scorllTop:' + son.scrollTop);
+        
+    </script>
+</body>
+</html>

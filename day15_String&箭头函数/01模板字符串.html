@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //模板字符串
+        let name = 'along';
+        let age = 18;
+        let res = tag`My name is ${name}, i am ${age} years old.`;
+
+        console.log(res);
+
+        let info = [name, age];
+        let lis = info.map(
+            function(item) {
+                return `<li> ${item} </li>`;
+            }
+        );
+
+        console.log(lis);
+        
+        let ulString = `
+            <ul>
+                ${lis.join('\n')}
+            </ul>
+        `;
+        console.log(ulString);
+        document.write(ulString);
+
+        //模板标签
+        function tag() {
+            let str = arguments[0].join("%TEMP%");
+            str = str.toUpperCase();
+            for(let i = 1; i < arguments.length; i++) {
+                str = str.replace("%TEMP%", arguments[i].toString().toUpperCase());
+            }
+            console.log(str);
+        }
+
+    </script>
+
+</body>
+</html>

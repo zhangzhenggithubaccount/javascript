@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //ES5新特性
+        var arr = [1, 2, 3, 4, 5, 6];
+        //forEach
+        arr.forEach(function (item, index, array){
+            console.log("item:", item);
+            console.log("index:", index);
+            console.log("array:", array.toString());
+        });
+
+        //indexOf
+        res_indexof = arr.indexOf(2);
+        console.log(res_indexof);
+
+        //filter 返回过滤后的数组
+        res_filter = arr.filter(function (item, index, array){
+            return item % 2 === 0;
+        });
+        console.log(arr);
+        console.log(res_filter);
+
+        //map 返回遍历后的数组
+        res_map = arr.map(function(item, index, array) {
+            return item * item;
+        });
+        console.log(res_map);
+        
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" class="account">
+
+    <script src="../day29/js/jquery.min.js"></script>
+    <script>
+
+        $('.account').on('focus', function() {
+            $(this).val('123');
+        });
+        //方法一 调用事件方法
+        //$('.account').focus();
+
+        //方法二 调用trigger函数
+        //$('.account').trigger('focus');
+
+        //方法三 调用triggerHandler函数 该方法会取消默认行为
+        $('.account').triggerHandler('focus');
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+1   面向对象编程 OOP(Object Oriented Programming) 
+    面向过程 POP(Procedure Oriented)
+        分析问题所需要的步骤
+    面向对象
+        以功能对象划分问题
+    注意：都得解决问题的方法
+
+            面向对象    VS      面向过程
+优      灵活 复用 维护          性能高
+缺      性能比面向过程低        没有面向对象灵活、复用、维护好
+
+面向对象思维特点
+    1 抽取对象共用的属性和行为组织成一个类
+    2 对类进行实例化
+
+3 构造函数
+    构造函数是一种特殊的函数，主要用来创建对象，总是与new一起使用
+    构造函数本身也是对象 构造函数名.static成员
+    实例成员 -- 实例对象访问
+    静态成员 -- 构造函数访问
+    1. 对象直接量
+        let student = {
+            name: '',
+            age: 18
+        }
+    2. new Object() 通过构造函数创建
+    3. 自定义构造函数
+        function Cat() {
+            this.color = '';
+        }
+    4. new 构造函数过程
+        1) 在内存中创建一个空对象{}
+        2) 让函数中的this指向空对象 this === {}
+        3) 开始执行函数体 {age: 22, xueli: 'benke'}
+        4) 返回该对象 （构造函数中不需要写return）
+
+4 原型prototype
+    1. 原型是函数中的一个对象，该对象可以实现对象函数共享
+    student.prototype.functionName = function() {}
+    2. 原型定义的函数是可以共享的（将来构造函数的实例都可以共享）
+    3. 每个构造函数都有一个prototype属性，指向一个对象，假如该对象
+    定义了属性和方法都会被构造函数拥有。
+5 constructor
+    构造函数原型prototype身上有一个属性constructor，它的值指向构造函数
+    constructor <------> prototype
+Studnet.prototype.constructor   Student.prototype
+
+6 原型链
+    js成员查找机制-原型链查找机制
+    当我们访问一个对象的成员（方法或属性）首先看自己有没有，假如没有
+    就查找它的原型（也就是它的__proto__)，假如还没有查找原型对象的原型
+    （Object的原型对象），依次类推最终找到object

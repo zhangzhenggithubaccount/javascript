@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        function Animal(name, type) {
+            this.name = name;
+            this.type = type;
+        }
+
+        Animal.prototype.breath = function() {
+            console.log('breath...');
+        }
+
+        function Cat(name, type) {
+            Animal.call(this, name, type);
+        }
+
+        Cat.prototype = Animal.prototype;
+        
+        //继承父类方法
+        //Cat.prototype = new Animal();
+        //Cat.prototype.constructor = Cat;
+
+        console.log(new Cat('Lucy', 'Cat'));
+
+    </script>
+    
+</body>
+</html>

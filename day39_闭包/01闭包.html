@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+         //全局作用域
+         var num = 10;
+         function f() {
+             // 局部作用域
+             var num2 = 20;
+             console.log(num);
+             console.log(num2);
+         }
+         //函数外部无法访问函数内部变量
+         //console.log(num2);
+         f();
+
+         //闭包 有权利访问另外一个函数作用域中的变量的函数
+         //fun闭包函数 fun2闭包
+         function fun() { //闭包函数
+             var a = 10;
+             function fun2() { //闭包 衍生变量作用范围
+                 console.log(a);
+             }
+             fun2();
+         }
+         fun();
+
+    </script>
+
+</body>
+</html>

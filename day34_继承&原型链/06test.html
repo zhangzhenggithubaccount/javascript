@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        function convertToBinary(num) {
+            let str = num.toString(2);
+            return str.padStart(8, 0);
+        }
+
+        console.log(convertToBinary(1));
+
+        function multiply(a, b) {
+    
+            let aStr = a.toString();
+            let bStr = b.toString();
+            let aLen = aStr.substring(aStr.indexOf('.') + 1).length;
+            let bLen = bStr.substring(bStr.indexOf('.') + 1).length;
+            console.log(aLen, bLen);
+            return ((a * Math.pow(10, aLen)) * (b * Math.pow(10, bLen))) / Math.pow(10, aLen + bLen);
+            
+        }
+
+        console.log(multiply(3, 0.0001));
+
+    </script>
+
+</body>
+</html>

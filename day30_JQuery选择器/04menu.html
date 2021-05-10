@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        div, ul, ol, li {
+
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+        }
+
+        .nav {
+
+            margin: 0 auto;
+            width: 500px;
+            height: 40px;
+            border: 1px solid #ccc;
+
+        }
+
+        .nav>ul>li {
+
+            float: left;
+            width: 100px;
+            height: 40px;
+            border: 1px solid #ccc;
+            box-sizing: content-box;
+            line-height: 38px;
+            text-align: center;
+
+        }
+        .nav>ul>li>ul>li {
+
+            display: none;
+            width: 100px;
+            height: 40px;
+            border: 1px solid #ccc;
+            box-sizing: content-box;
+            line-height: 38px;
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <div class="nav">
+        <ul>
+            <li>首页</li>
+            <li>新闻
+                <ul>
+                    <li>热点新闻</li>
+                    <li>国内新闻</li>
+                    <li>国际新闻</li>
+                </ul>
+            </li>
+            <li>产品
+                <ul>
+                    <li>手机</li>
+                    <li>平板</li>
+                    <li>电脑</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <script src="../day29/js/jquery.min.js"></script>
+    <script>
+
+        $(function() {
+
+            // $('.nav > ul > li').mouseenter(function() {
+            //     $(this).find('ul li').stop().slideDown(500);
+            // });
+
+            // $('.nav > ul > li').mouseleave(function() {
+            //     $(this).find('ul li').stop().slideUp(500);
+            // });
+
+            $('.nav > ul > li').hover(function() {
+                $(this).find('li').stop().slideDown(500);
+            }, function() {
+                $(this).find('li').stop().slideUp(500);
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>

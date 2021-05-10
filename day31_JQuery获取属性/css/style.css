@@ -1,0 +1,71 @@
+.box {
+    margin: 0 auto;
+    padding: 0;
+    width: 1226px;
+    height: 460px;
+    position: relative;
+}
+.swiper-slide, .swiper-slide img {
+    width: 1226px;
+    height: 460px;
+}
+.swiper-slide {
+    position: absolute;
+    opacity: 0;
+}
+
+.prev {
+    width: 41px;
+    height: 69px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -35px;
+    background: url(../image/icon-slides.png) no-repeat -83px 0;
+    cursor: pointer;
+    z-index: 3;
+}
+.prev:hover {
+    background: url(../image/icon-slides.png) no-repeat 0 0;
+}
+
+.next {
+    width: 41px;
+    height: 69px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -35px;
+    background: url(../image/icon-slides.png) no-repeat -124px 0;
+    cursor: pointer;
+    z-index: 3;
+}
+.next:hover {
+    background: url(../image/icon-slides.png) no-repeat -41px 0;
+}
+
+.slide-pagination {
+    position: absolute;
+    width: 500px;
+    height: 16px;
+    right: 20px;
+    bottom: 20px;
+    text-align: right;
+    z-index: 3;
+}
+
+.slide-bullet {
+    display: inline-block;
+    margin: 0 2px;
+    width: 10px;
+    height: 10px;
+    border: 3px solid #fff;
+    border-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+}
+
+.slide-bullet:hover, .bullet-hover{
+    border-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(255, 255, 255, 0.3);
+}

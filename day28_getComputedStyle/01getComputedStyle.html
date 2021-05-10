@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {  
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            position: absolute;
+            left: 20px;
+            top: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="box" style="left: 30px"></div>
+
+    <script>
+
+        let box = document.getElementById('box');
+
+        console.log(window.getComputedStyle(box, false));
+
+        function getStyle(obj, attr) {
+            if (window.getComputedStyle) {
+                return window.getComputedStyle(obj, false)[attr];
+            }else if(obj.currentStyle) {
+                return obj.currentSyle[attr];
+            }
+        }
+
+        console.log(getStyle(box, 'left'));
+
+    </script>
+
+</body>
+</html>

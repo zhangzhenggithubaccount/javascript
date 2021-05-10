@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        let obj1 = {
+            fn1 : function() {
+            console.log(this);
+            }
+        };
+
+        let obj2 = {
+            fn2 : () => {
+                console.log(this);
+            }
+        };
+
+        let obj3 = {
+            num: 100
+        }
+
+        obj1.fn1();
+        obj2.fn2();
+
+        //window.fun() 此时 this === window
+        //1 call() 能实现函数调用
+        //fun.call()
+        //2 可以改变函数this指向
+        obj1.fn1.call(obj3);
+
+        
+
+    </script>
+
+</body>
+</html>

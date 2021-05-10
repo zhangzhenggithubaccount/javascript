@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="outer">
+        <div id="inner">点我</div>
+    </div>
+    
+    <script>
+
+        let inter = document.getElementById("inner");
+        let outer = document.getElementById("outer");
+        
+        //  捕获 outer -> 捕获 inner -> 冒泡 inner -> 冒泡 outer -> 冒泡 body
+        inter.addEventListener('click', function() {
+            console.log('捕获 inner');
+        }, true);
+
+        inter.addEventListener('click', function() {
+            console.log('冒泡 inner');
+        });
+        outer.addEventListener('click', function() {
+            console.log('捕获 outer');
+        }, true);
+
+        outer.addEventListener('click', function() {
+            console.log('冒泡 outer');
+        });
+
+        document.body.addEventListener('click', function() {
+            console.log('冒泡 body');
+        });
+
+    </script>
+
+</body>
+</html>

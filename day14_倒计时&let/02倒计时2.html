@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="time"></div>
+
+    <script>
+
+        function countDown(t) {
+
+            var ft = new Date(t);
+            var ct = new Date();
+            var diff = parseInt((ft.getTime() - ct.getTime()) / 1000);
+
+            var day = parseInt(diff / (24 * 3600));
+            var hours = parseInt((diff % (24 * 3600)) / 3600);
+            var minutes = parseInt((diff % 3600) / 60);
+            var second = diff % 60;
+
+            var count = day + "天" + hours + "小时";
+            count += minutes + "分" + second + "秒"
+            
+            return count;
+
+        }
+
+        var times = document.getElementsByClassName("time");
+        var count = countDown("2021/6/18")
+        times[0].innerHTML = count;
+        
+        setInterval(function() {
+            count = countDown("2021/6/18")
+            times[0].innerHTML = count;
+        }, 1000);
+
+    </script>
+
+</body>
+</html>

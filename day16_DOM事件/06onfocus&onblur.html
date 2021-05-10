@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        onload = () => {
+
+            let account = document.getElementById("account");
+            let accountInfo = document.getElementById("accountInfo");
+            account.onblur = () => {
+                if (isNaN(account.value)) {
+                    accountInfo.innerHTML = "请输入数字！"
+                }
+            }
+            account.onfocus = () => {
+                accountInfo.innerHTML = ""
+            }
+
+        }
+
+    </script>
+
+</head>
+<body>
+    
+    <input type="text" name="account" id="account">
+    <span id="accountInfo"></span>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //系统构造函数
+        let obj = new Object()
+        console.log(obj);
+
+        //自定义构造函数
+        function Cat() {
+            //console.log(this);
+            this.color = 'black';
+            //return {}; 当构造函数中有返回引用类型时
+            age = 12; //没加this
+        }
+        /*
+        1. 在内存中创建一个空对象 {}
+        2. 让函数中的this指向空对象{} this === {}
+        3. 开始执行函数体{this.color = 'black'}
+        4. 返回函数体（构造函数中不用写return）
+        */
+
+        let cat1 = new Cat();
+        console.log(cat1.color);
+
+        Cat.bake = function() {
+            console.log('miao miao ~');
+        }
+
+        //cat1.bake(); cat1.bake is not a function
+
+        Cat.bake();
+
+
+    </script>
+
+</body>
+</html>

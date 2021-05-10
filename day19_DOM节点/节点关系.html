@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <img src="" alt="">
+
+    <div id="box">
+        <p class="item"><a href="" id="remove" name="delete">delete element</a></p>
+    </div>
+
+    <script>
+        /*
+        节点
+        1. 元素节点
+            nodeType 1
+            nodeName 大写标签名
+            nodeValue null
+        2. 注释节点
+            nodeType 8
+            nodeName #comment
+            nodevalue 注释内容
+        3. 文本节点
+            nodeType 3
+            nodeName #text
+            nodeValue 文本内容
+        */
+
+        //document.getElementById() 通过id获取节点
+        let box = document.getElementById("box");
+        console.log(box);
+        //document.getElementsByTagName() 通过标签名获取节点
+        let div = document.getElementsByTagName("div")[0];
+        console.log(div);
+        //document.getElementsByClassName() 通过类名获取节点
+        let item = document.getElementsByClassName("item");
+        console.log(item);
+        //document.getElementsByName() 通过name获取节点
+        let nodeName = document.getElementsByName("delete");
+        console.log(nodeName);
+        //document.querySelector() 通过类选择器获取节点
+        let clsSelector = document.querySelector(".item");
+        console.log(clsSelector);
+        //document.querySelectorAll() 通过类选择器获取全部节点
+        let clsSelectorAll = document.querySelectorAll(".item");
+        console.log(clsSelectorAll);
+
+        //document.body
+        console.log(document.body);
+        //document.head
+        console.log(document.head);
+        //document.documentElement
+        console.log(document.documentElement);
+
+        //parentNode
+        let currentNode = document.getElementById("remove");
+        console.log(currentNode.parentNode);
+
+        //nodeName
+        console.log(currentNode.parentNode.nodeName);
+
+        //nodeType
+        console.log(currentNode.parentNode.nodeType);
+
+        //children
+        let currentDivNode = document.getElementById("box");
+        console.log(currentDivNode.children.length); // 1
+
+        //childNodes
+        console.log(currentDivNode.childNodes.length); // 3
+
+        //firstChild
+        console.log(currentDivNode.firstChild); // #text
+
+        //firstElementChild
+        console.log(currentDivNode.firstElementChild); // P
+
+        //lastChild
+        console.log(currentDivNode.lastChild); // #text
+
+        //lastElementChild
+        console.log(currentDivNode.lastElementChild); // P
+
+        //previousElementSibling
+        console.log(currentDivNode.previousElementSibling);
+
+        //priviousSibling
+        console.log(currentDivNode.previousSibling);
+
+        //nextElementSibling
+        console.log(currentDivNode.nextElementSibling);
+
+        //nextSibling
+        console.log(currentDivNode.nextSibling);
+        
+    </script>
+
+</body>
+</html>

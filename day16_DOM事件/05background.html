@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        onload = () => {
+
+            let color = document.getElementById("color");
+            color.onchange = () => {
+                console.log(color.value);
+                document.body.style.backgroundColor = color.value;
+            }
+
+        }
+
+    </script>
+
+</head>
+<body>
+    
+    <select name="color" id="color">
+
+        <option value="#DAF7A6">黄绿色</option>
+        <option value="#FFC300">橙黄色</option>
+        <option value="#FF5733">橘红色</option>
+        <option value="#C70039">玫瑰红</option>
+        <option value="#900C3F">酒红色</option>
+        <option value="#581845">紫红色</option>
+
+    </select>
+
+</body>
+</html>

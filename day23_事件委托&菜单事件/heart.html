@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #circle{
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            margin: -25px 0 0 -25px;
+            background-color: skyblue;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="circle"></div>
+    <script>
+        let circle = document.getElementById("circle");
+        
+        document.addEventListener('mousemove', function(e) {
+            e = e || window.event;
+            circle.style.left = e.pageX + 'px';
+            circle.style.top = e.pageY + 'px';
+        });
+    </script>
+</body>
+</html>

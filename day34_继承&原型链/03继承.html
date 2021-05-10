@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        function Animal(name, type) {
+            console.log(this);
+            this.name = name;
+            this.type = type;
+            console.log(this.name, this.type);
+        }
+
+        function Cat(name, type) {
+            Animal(name, type);
+        }
+
+        let cat = new Cat('lucy', 'cat'); 
+        //this = window,window.name = 'lucy',window.type = 'cat'
+        console.log('cat: ', cat);
+        
+        //call 可以将Animal中的this指向传入的对象
+        function Dog(name, type) {
+            Animal.call(this, name, type);
+        }
+
+        let dog = new Dog('jack', 'dog');
+        console.log('dog: ', dog);
+
+    </script>
+    
+</body>
+</html>

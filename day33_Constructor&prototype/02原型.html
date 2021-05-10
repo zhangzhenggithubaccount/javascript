@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        function Student(name, age) {
+            this.name = name;
+            this.age = age;
+            this.breath = function() {
+                console.log('hu hu ~~');
+            }
+        }
+
+        let stu1 = new Student('Phil', 22);
+        let stu2 = new Student('Jack', 23);
+        console.dir(stu1);
+        // 每个对象都有自己的方法占用内存
+        console.log(stu1.breath === stu2.breath);
+
+        Student.prototype.run = function() {
+            console.log('running');
+        }
+
+        console.log(Student.prototype);
+        console.dir(Student);
+        console.log(stu1.run === stu2.run);
+
+    </script>
+
+</body>
+</html>

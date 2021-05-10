@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        
+        var a = 10;
+
+        function test() {
+
+            var b = 100;
+            console.log(a);//打印结果是10
+            a=100;
+    
+        }
+        test();
+        console.log(a); //打印结果为100
+        console.log(b);//报错 b is not defind
+
+    </script>
+
+</body>
+</html>

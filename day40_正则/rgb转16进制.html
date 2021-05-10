@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let rex = /rgb\((\d+), (\d+), (\d+)\)/;
+        let res = 'rgb(255, 255, 255)'.match(rex);
+        //console.log(res);
+
+        function rgb2hex(sRGB) {
+            let rex = /rgb\((\d+),\s*(\d+),\s*(\d+)\)/;
+            let res = sRGB.match(rex);
+            console.log(res);
+            if(!res) {
+                return sRGB;
+            }else {
+                let str = '#';
+                for(let i = 1; i < res.length; i++) {
+                    let m = parseInt(res[i]);
+                    if(m<=255 && m>=0) {
+                        str+=(m<16?'0'+m.toString(6):m.toString(16));
+                    }else {
+                        return sRGB;
+                    }
+                }
+                return str;
+            }
+        }
+        console.log(rgb2hex('rgb(255,255,100)'));
+    </script>
+</body>
+</html>

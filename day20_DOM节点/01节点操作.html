@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    
+    <script>
+
+        function rand(min, max) {
+            return Math.round(Math.random() * (max - min)) + min;
+        }
+        
+        function createStar() {
+            let img = document.createElement("img");
+            img.src = './image/star.png';
+            img.style.position = 'absolute';
+            let lft = rand(0, window.innerWidth - img.width);
+            let top = rand(0, window.innerHeight - img.height);
+            img.style.left = lft + 'px';
+            img.style.top = top + 'px';
+            let size = rand(10, 30);
+            img.style.width = size;
+            img.style.height = size;
+            document.body.appendChild(img);
+        }
+        setInterval(function() {
+            createStar();
+        }, 200);
+        
+    </script>
+
+</body>
+</html>

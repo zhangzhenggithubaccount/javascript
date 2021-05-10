@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <a href="http://www.baidu.com">百度一下</a>
+    <input type="checkbox" name="" id="">
+    <p index="1" data-uname="zs">p元素</p>
+
+    <script src="../day29/js/jquery.min.js"></script>
+    <script>
+
+        //获取元素属性值
+        let url = $('a').prop('href');
+        console.log(url);
+
+        //为元素赋值
+        $('a').prop('target', '_blank');
+
+        $('input').change(function() {
+            console.log($(this).prop('checked'));
+        });
+
+        //获取自定义函数值
+        console.log($('p').prop('index')); //undefined
+        console.log($('p').attr('index')); //1
+
+        //为元素赋值
+        $('p').attr('class', 'demo');
+        $('p').data('age', 22); //元素存储age=22
+
+        console.log($('p').data('age'));
+
+    </script>
+
+</body>
+</html>

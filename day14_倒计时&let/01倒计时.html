@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        var ft = new Date("2021/3/10");
+        var ct = new Date();
+
+        var diff = ft.getTime() - ct.getTime();
+
+        var day = parseInt(diff / (1000 * 24 * 3600));
+        var hours = parseInt((diff % (1000 * 24 * 3600)) / (3600000));
+        var minutes = parseInt((diff % 3600000) / 60000);
+        var seconds = parseInt((diff % 60000) / 1000);
+        var millisecond = diff % 1000
+
+        console.log(day + "天" + hours + "小时" + minutes + "分钟" + seconds + "秒" + millisecond + "毫秒");
+
+    </script>
+
+</body>
+</html>

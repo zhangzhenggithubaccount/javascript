@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function count(str) {
+            str = str.replace(' ', '');
+            let freq = {};
+            for(let c in str) {
+                if(str[c] in freq) {
+                    freq[str[c]] += 1;
+                }else {
+                    freq[str[c]] = 1;
+                }
+            }
+            return freq;
+        }
+        console.log(count('just for test!!!'));
+        function valid1() {     
+            var result = count('just for test!!!');     
+            return result.j === 1 && result.u === 1 && result.s === 2 && result.t === 3 && result.f === 1 && result.o === 1 && result.r === 1 && result.e === 1 && result['!'] === 3; 
+        }
+        console.log(valid1());
+    </script>
+</body>
+</html>

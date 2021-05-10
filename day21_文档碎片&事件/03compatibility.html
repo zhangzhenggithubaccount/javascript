@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button id="btn">hello</button>
+
+    <script>
+
+        var btn = document.getElementById("btn");
+
+        addEventListener(btn, 'click', function() {
+            console.log('world');
+        });
+
+        function addEventListener(ele, event, method) {
+            if (ele.addEventListener) {
+                console.log('addEventListener');
+                ele.addEventListener(event, method);
+            }else if (ele.attachEvent) {
+                console.log('attachEvent');
+                ele.attachEvent('on' + event, method);
+            }else {
+                console.log('onevent');
+                ele['on' + event] = method;
+            }
+        }
+
+    </script>
+
+</body>
+</html>

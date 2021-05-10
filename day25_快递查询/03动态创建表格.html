@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        #box table{
+            margin-top: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        } 
+
+        #box table tr td {
+            width: 75px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.4);
+        }
+        
+        #box table tr td a {
+            text-decoration: none;
+            outline: none;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="row">
+    <input type="text" id="col">
+    <input type="button" id="sub" value="创建">
+    <div id="box"></div>
+
+    <script>
+        function $(id) {
+            return document.getElementById(id);
+        }
+        function create(tagName) {
+            return document.createElement(tagName);
+        }
+        
+        let box = $("box");
+        let sub = $("sub");
+
+        sub.addEventListener('click', function() {
+            let rowVal = $("row").value;
+            let colVal = $("col").value;
+            let otab = create('table');
+            otab.setAttribute('cellspacing' ,'0');
+            otab.setAttribute('cellpadding' ,'0');
+            
+            for(let i = 0; i < rowVal; i++) {
+                let otr = create('tr');
+                for(let j = 0; j < colVal; j++) {
+                    let otd = create('td');
+                    otd.innerHTML = String(i + "行" +  j + "列");
+                    otr.appendChild(otd);
+                }
+                let del = create('td');
+                del.innerHTML = "<a href='javascript:void(0)'>删除</a>"
+                del.addEventListener('click', function() {
+                    if (confirm("确定还要删除吗？")) {
+                        this.parentNode.remove();
+                    }
+                });
+                otr.appendChild(del);
+                otab.appendChild(otr);
+            }
+            box.appendChild(otab);
+        });
+
+    </script>
+
+</body>
+</html>

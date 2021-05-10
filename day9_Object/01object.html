@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        var along = {
+            name: "along",
+            age: 33,
+            xueli: "benke",
+            birthday: {
+                year: 1988,
+                month: 9,
+                day: 10
+            },
+            teach: function() {
+                console.log("带大家月薪30k");
+            }
+        }
+
+        console.log(typeof along);
+        console.log(along.name);
+        console.log(along['name']);
+
+        var attr = "xueli";
+        console.log(along[attr]);
+
+        along.wx = "zx17621485";
+        along.sing = function() {
+            console.log('singing');
+        }
+
+        console.log(along);
+
+    </script>
+</body>
+</html>

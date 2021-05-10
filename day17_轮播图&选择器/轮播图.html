@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="./css/style.css">
+<script>
+
+    onload = () => {
+
+        //轮播图地址
+        let imgArr = ['./image/小米10.jpg', './image/note9.webp', './image/redmimax86.webp', './image/redmibook.webp', './image/missb.webp'];
+        let idx = 0;
+        let time = null;
+        //顺序播放true 循环播放false
+        let flag = false;
+        //获取dom对象方法
+        let $ = id => document.getElementById(id);
+        let $$ = cls => document.getElementsByClassName(cls);
+        //展示轮播图
+        let show = (img, cls) => {
+            img.src = imgArr[idx];
+            for(let i = 0; i < cls.length; i++) {
+                if (i === idx) {
+                    cls[i].classList.add("bullet_hover");
+                }else {
+                    cls[i].classList.remove("bullet_hover");
+                }
+            }
+        }
+        //添加目录
+        let addBullet = n => {
+            let bulletStr = "<a class='bullet'></a>".repeat(n);
+            $("picNum").innerHTML = bulletStr;
+        }
+        //向前翻页
+        let prev = () => {
+            if (flag && idx === 0) {
+                alert("这是第一页！");
+                return;
+            }else {
+                if(idx === 0) {
+                    idx = imgArr.length - 1;
+                }else {
+                    idx--;
+                }
+            }
+            show(img, cls);
+        }
+        //向后翻页
+        let next = () => {
+            if (flag && idx === imgArr.length - 1) {
+                alert("这是最后一页！");
+                return;
+            }else {
+                if(idx === imgArr.length -1) {
+                    idx = 0;
+                }else {
+                    idx++;
+                }
+            }
+            show(img, cls);
+        }
+        
+        let img = $("picture");
+        let cls = $$("bullet");
+
+        addBullet(imgArr.length);
+        show(img, cls);
+
+        $("prev").onclick = () => {
+            prev();
+        }
+        
+        $("next").onclick = () => {
+            next();
+        }
+
+        for(let i = 0; i < cls.length; i++) {
+            cls[i].onclick = () => {
+                idx = i;
+                show(img, cls);
+            }
+        }
+        
+        let autoNext = () => {
+            time = setInterval(() => next(), 3000);
+        }
+        autoNext();
+
+        let closeNext = () => {
+            clearInterval(time);
+        }
+
+        $$("container")[0].onmouseover = () => {
+            closeNext();
+        }
+
+        $$("container")[0].onmouseout = () => {
+            autoNext();
+        }
+
+
+        
+
+    }
+
+
+
+</script>
+<body>
+    <div class="container">
+        <a href="javascript:" id="prev"></a>
+        <a href="javascript:" id="next"></a>
+        <img id="picture">
+        <div id="picNum"></div>
+    </div>
+</body>
+</html>

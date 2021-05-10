@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        class Animal {
+            //构造函数 接受传递来的参数 返回第一实例对象
+            constructor(name , type) {
+                this.name = name;
+                this.type = type;
+            }
+
+            breath() {
+                console.log('breath...');
+            }
+        }
+
+        let lily = new Animal('lily', 'cat');
+        let jack = new Animal('jack', 'dog');
+
+        console.log(lily.breath === jack.breath);
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            position: absolute;
+            top: 80px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="box"></div>
+    透明度：<input type="text" id="ov"><button id="ob">透明</button><br/>
+    改变位置：<input type="text" id="pos">像素：<input type="text" id="posv"><button id="posb">运动</button>
+    
+    <script>
+
+        let ov = document.getElementById('ov');
+        let ob = document.getElementById('ob');
+
+        let pos = document.getElementById('pos');
+        let posv = document.getElementById('posv');
+        let posb = document.getElementById('posb');
+
+        let box = document.getElementById('box');
+
+        ob.addEventListener('click', function() {
+            animate(box, ov.value * 100, 'opacity');
+        });
+        posb.addEventListener('click', function() {
+            animate(box, ov.value * 100, 'opacity');
+            animate(box, posv.value, pos.value);
+        });
+
+        function animate(obj, target, attr) {
+            target = parseFloat(target);
+            //为obj添加timer计时器
+            obj.timer = setInterval(function() {
+                //获取obj元素当前attr值
+                let current;
+                if (attr === 'opacity') {
+                    current = parseFloat(getStyle(obj, attr)) * 100;
+                }else {
+                    current = parseFloat(getStyle(obj, attr));
+                }
+                //单次步长
+                let step = (target - current) / 10;;
+                step = step>0? Math.ceil(step): Math.floor(step);
+                console.log(attr + ', ' + current + ', ' + step);
+                //当达到target时清楚时间
+                if (current === target) {
+                    console.log(attr + '终止');
+                    clearInterval(obj.timer);
+                    return;
+                }else {
+                    //更新attr值
+                    if (attr === 'opacity') {
+                        styleVal = (current + step) / 100;
+                    }else {
+                        styleVal = current + step + 'px';
+                    }
+                    obj.style[attr] = styleVal;
+                }
+            }, 50);
+        }
+
+        function getStyle(obj, attr) {
+            if (window.getComputedStyle) {
+                return window.getComputedStyle(obj, false)[attr];
+            }else if(obj.currentStyle) {
+                return obj.currentSytle[attr];
+            }
+        }
+
+    </script>
+
+</body>
+</html>

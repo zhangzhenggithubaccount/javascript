@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function cssStyle2DomStyle(sName) {
+            var re = /-(\w)/g;
+            //如果字符串以 - 开头则将 - 删掉
+            if(sName[0] == '-'){sName = sName.replace('-', '');}
+        
+            //将 “-字母”形式的字符串替换为 “大写字母”的形式
+            sName = sName.replace(re, function($0, $1, $2, $3){
+                console.log($0, $1, $2, $3);
+                return $1.toUpperCase();
+            })
+            
+            return sName;
+        }
+
+        console.log(cssStyle2DomStyle('-font-size-weight'));
+
+        function cssStyle2DomStyle2(sName) {
+            let ret = sName.split('-');
+            let res = ret[0];
+            if(ret[0] === '') {
+                ret.splice(0, 1);
+                res = ret[0];
+            }
+            
+            for(let i = 1; i <= ret.length - 1; i++) {
+                res += ret[i].charAt(0).toUpperCase() + ret[i].slice(1).toLowerCase();
+            }
+            return res;
+        }
+
+        console.log(cssStyle2DomStyle2('-font-size-weight'));
+
+        function cssStyle2DomStyle3(sName) {
+            let arr = sName.split('');
+            if(arr[0] === '-') {
+                arr.splice(0, 1);
+            }
+            for(let i = 0; i < arr.length; i++) {
+                if(arr[i] === '-') {
+                    arr.splice(i, 1);
+                    arr[i] = arr[i].toUpperCase();
+                }
+            }
+            return arr.join('');
+        }
+
+        console.log(cssStyle2DomStyle3('-font-size-weight'));
+
+    </script>
+</body>
+</html>

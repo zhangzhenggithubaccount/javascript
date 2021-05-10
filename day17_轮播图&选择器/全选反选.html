@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox" name="" id="all">全选
+    <input type="checkbox" name="" id="reverse">反选
+    <input type="checkbox" name="" class="food">鱼香肉丝
+    <input type="checkbox" name="" class="food">宫保鸡丁
+    <input type="checkbox" name="" class="food">辣子鸡
+    <input type="checkbox" name="" class="food">红烧肉
+    <input type="checkbox" name="" class="food">毛血旺
+
+    <script>
+
+        let all = document.getElementById("all");
+        let reverse = document.getElementById("reverse");
+
+        let food = document.getElementsByClassName("food");
+
+        //全选
+        all.onclick = function() {
+            for(let i = 0; i < food.length; i++) {
+                food[i].checked = all.checked;
+            }
+        }
+
+        //反选
+        reverse.onclick = function() {
+            for(let i = 0; i < food.length; i++) {
+                food[i].checked = !food[i].checked;
+            }
+            isAll();
+        }
+
+        //是否全选
+        for(let i = 0; i < food.length; i++){
+            food[i].onclick = function() {
+                isAll();
+            }
+        }
+
+        function isAll() {
+            for(let j = 0; j < food.length; j++) {
+                    if(!food[j].checked) {
+                        all.checked = false;
+                        return;
+                    }
+                }
+                all.checked = true;
+        }
+
+    </script>
+
+</body>
+</html>

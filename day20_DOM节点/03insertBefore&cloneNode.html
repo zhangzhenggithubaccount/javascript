@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button id="pos">insertBefore</button>
+    <button id="clone">cloneNode</button>
+    
+    <script>
+        
+        let pos = document.getElementById("pos");
+        pos.onclick = function() {
+
+            let elm = document.createElement("div");
+            elm.style.width = '50px';
+            elm.style.height = '50px';
+            elm.style.backgroundColor = 'skyblue';
+        
+            document.body.insertBefore(elm, pos);
+
+        }
+
+        let clone = document.getElementById("clone");
+        clone.onclick = function() {
+
+            let cloneN = pos.cloneNode(true);
+            document.body.insertBefore(cloneN, pos);
+
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../day29/js/jquery.min.js"></script>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            transition: all 1s;
+        }
+        .current {
+            width: 200px;
+            height: 200px;
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="box"></div>
+
+    <script>
+
+        // $('.box').css({
+        //     width: 200,
+        //     height: 200
+        // });
+
+        $('.box').click(function() {
+            //$(this).toggleClass('current');
+
+            if ($(this).hasClass('current')) {
+                $(this).removeClass('current');
+            }else {
+                $(this).addClass('current');
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>

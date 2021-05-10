@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function triangle(h){
+            for(var i = 0; i < h; i++){
+                for(var j = 0; j < parseInt((2 * h - 1) / 2) - i; j++){
+                    document.write("&nbsp;");
+                }
+                for(var j = 0; j < 2 * i + 1; j++){
+                    document.write("*");
+                }
+                document.write("<br/>");
+            }
+        }
+
+        triangle(4);
+        triangle(20);
+
+        function diamond(h) {
+            for(var i = 0; i < parseInt(h/2 + 1); i++){
+                for(var j = 0; j < (h + 1) / 2 - i - 1; j++) {
+                    document.write("&nbsp;");
+                }
+                for(var j = 0; j < 2 * i + 1; j++) {
+                    document.write("*");
+                }
+                document.write("<br/>");
+            }
+            for(var i = 0; i < h - parseInt(h/2 + 1); i++) {
+                for(var j = 0; j < i + 1; j++) {
+                    document.write("&nbsp;");
+                }
+                for(var j = 0 ; j < 2 *(h - parseInt(h/2 + 1) - i) - 1; j++) {
+                    document.write("*");
+                }
+                document.write("<br/>");
+            }
+        }
+
+        diamond(7);
+        diamond(11);
+
+    </script>
+</body>
+</html>

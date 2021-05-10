@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #message {
+        width: 300px;
+        height: 100px;
+        overflow: auto;
+    }
+</style>
+<body>
+    <div id="message">
+        当地时间19日，为期两天的中美高层战略对话在美国安克雷奇结束。
+        这是拜登就任美国总统以来，中美高级官员首次举行面对面会谈。
+        从中方会后发布的信息看，中美双方围绕各自内外政策、
+        中美关系以及共同关心的重大国际地区问题，进行了坦诚、
+        深入、长时间、建设性的沟通，并都认为对话是及时的、有益的，
+        加深了相互理解。同时，双方在一些问题上仍存在重要分歧。
+    </div>
+
+    <script>
+        let message = document.getElementById('message');
+        console.log(message.scrollWidth);
+        console.log(message.scrollHeight);
+        message.addEventListener('scroll', function() {
+            console.log(this.scrollTop);
+        });
+    </script>
+</body>
+</html>

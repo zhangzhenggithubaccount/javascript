@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        let arr = [1, 2, 3];
+
+        // let a = arr[0];
+        // let b = arr[1];
+        // let c = arr[2];
+
+        // console.log(a, b, c);
+
+        //数组的解构赋值
+        let [a, b, c] = arr;
+        console.log(a, b, c);
+
+        //对象的解构赋值
+        let {name, age} = {name: 'along', age: 18};
+        console.log(name, age);
+
+        //解构赋值别名
+        let {name: name1, age: age1} = {name: 'along', age: 18};
+        console.log(name1, age1);
+
+        //数组元素为对象的解构赋值
+        let [,{hobby: hb}] = [{
+            name: 'along',
+            age: 32
+        }, {
+            hobby: ['coding', 'running']
+        }];
+        console.log(hb);
+
+        let {d, e, f} = {d: 10, e: 20, f: 30};
+        console.log();
+
+        function logInfo({a, b}){
+            console.log(a, b);
+        }
+        logInfo();
+    </script>
+</body>
+</html>

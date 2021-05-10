@@ -1,0 +1,19 @@
+ECMAScript ES
+    ES3 ES5 ES6
+    balel ->将ES6转为ES5的编译器
+
+let&const
+    1. let不能重复声明变量
+    2. let没有变量提升和暂时性死区
+    3. let可以定义块作用域变量
+    4. let配合for循环的独特应用
+    
+解构赋值
+    ...
+字符串
+    String()
+函数
+    function() {} ()=>{}
+对象
+    Object
+数值新api

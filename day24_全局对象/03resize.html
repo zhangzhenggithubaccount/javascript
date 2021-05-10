@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        // DOM0级或DOM2级绑定皆可
+        window.onresize = function() {
+            console.log('窗口大小改变!');
+            console.log(window.innerWidth);
+        }
+
+        window.addEventListener('resize', function() {
+            console.log('eventListener 窗口大小改变!');
+            console.log('width:' + window.innerWidth);
+        });
+
+    </script>
+
+</body>
+</html>

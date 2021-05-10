@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <a href="http://www.baidu.com">百度一下</a>
+    <a href="http://www.atguigu.com">尚硅谷</a>
+    <button id="back">←</button>
+    <button id="forward">→</button>
+    
+    <script>
+
+        let forward= document.getElementById("forward");
+        let back= document.getElementById("back");
+
+        forward.onclick = function() {
+            history.forward();
+        }
+
+        back.onclick = function() {
+            history.back();
+        }
+
+    </script>
+
+</body>
+</html>

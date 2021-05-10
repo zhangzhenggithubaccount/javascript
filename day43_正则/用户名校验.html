@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .right {
+            color: green;
+        }
+        .wrong {
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <input type="text" name="account" class="account" />
+    <span class="tips"></span>
+
+    <script>
+
+        let account = document.querySelector('.account');
+        let tips = document.querySelector('.tips');
+        let accRex = /^\w{6,12}$/;
+        account.addEventListener('blur', function() {
+            if(accRex.test(this.value)) {
+                tips.innerHTML = '用户名可用';
+                if(hasClass(tips.className, 'wrong')) {
+                    tips.classList.remove('wrong');
+                }
+                if(!hasClass(tips.className, 'right')) {
+                    tips.classList.add('right');
+                }
+            }else {
+                tips.innerHTML = '用户名不可用';
+                if(hasClass(tips.className, 'right')) {
+                    tips.classList.remove('right');
+                }
+                if(!hasClass(tips.className, 'wrong')) {
+                    tips.classList.add('wrong');
+                }
+            }
+        });
+
+        function hasClass(classNames, className) {
+            let classList = classNames.split(' ');
+            return classList.includes(className)?true: false;
+        }
+        
+    </script>
+
+</body>
+</html>

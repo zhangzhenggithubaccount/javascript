@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../day29/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    
+    <div class="box">
+        <div class="swiper-slide">
+            <img src="./image/missb.webp" alt="">
+        </div>
+        <div class="swiper-slide">
+            <img src="./image/note9.webp" alt="">
+        </div>
+        <div class="swiper-slide">
+            <img src="./image/redmibook.webp" alt="">
+        </div>
+        <div class="swiper-slide">
+            <img src="./image/redmimax86.webp" alt="">
+        </div>
+        <div class="swiper-slide">
+            <img src="./image/小米10.jpg" alt="">
+        </div>
+        <div class="prev"></div>
+        <div class="next"></div>
+        <div class="slide-pagination">
+            <a href="javascript:" class="slide-bullet"></a>
+            <a href="javascript:" class="slide-bullet"></a>
+            <a href="javascript:" class="slide-bullet"></a>
+            <a href="javascript:" class="slide-bullet"></a>
+            <a href="javascript:" class="slide-bullet"></a>
+        </div>
+    </div>
+
+    <script>
+
+        $(function() {
+
+            let index = 0;
+
+            $('.prev').on('click', function() {
+                prev();
+            });
+            
+            $('.next').on('click', function() {
+                next();
+            });
+
+            $('.slide-bullet').each(function(idx, elem) {
+                $(elem).on('click', function() {
+                    index = idx;
+                    show(index);
+                })
+            });
+
+            show(0);
+
+            function show(index) {
+                $('.swiper-slide').each(function(idx, elem) {
+                    if (idx === index) {
+                        $(elem).animate({
+                            opacity: 1,
+                            zIndex: 2
+                        });
+                    }else {
+                        $(elem).animate({
+                            opacity: 0,
+                            zIndex: 1
+                        });
+                    }
+                });
+                $('.slide-bullet').each(function(idx, elem) {
+                    if (idx === index) {
+                        $(elem).addClass('bullet-hover');
+                    }else {
+                        $(elem).removeClass('bullet-hover');
+                    }
+                });
+            }
+            function next() {
+                if (index === ($('.swiper-slide').length - 1)) {
+                    index = 0;
+                }else {
+                    index++;
+                }
+                show(index);
+            }
+
+            function prev() {
+                if (index === 0) {
+                    index = ($('.swiper-slide').length - 1);
+                }else {
+                    index--;
+                }
+                show(index);
+            }
+            
+
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            width: 500px;
+            height: 300px;
+            margin: 100px 0 0 100px;
+            background-color: skyblue;
+            line-height: 300px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+
+    <script>
+        let box = document.getElementById('box');
+
+        box.addEventListener('mousemove', function(e) {
+    
+            e = e || window.event;
+            console.log('pageX:' + e.pageX, 'pageY:' + e.pageY);
+            console.log('offsetLeft:' + this.offsetLeft, 'offsetTop:' + this.offsetTop);
+            let x = e.pageX - this.offsetLeft;
+            let y = e.pageY - this.offsetTop;
+
+            box.innerHTML = '( ' + x + ' , ' + y + ' )';
+
+        });
+        
+    </script>
+
+</body>
+</html>

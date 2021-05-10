@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //Array.form() 把数组或类数组转成数组
+        function fn() {
+            let arr = Array.from(arguments);
+            console.log(arr)
+        };
+
+        fn(1, 2, 3);
+
+        //Array.of(...args) 创建参数为args的数组
+        console.log(new Array(3).length);
+        console.log(Array.of(3).length);
+
+        //fill()
+        let arr = [1, 2, 3, 4, 5];
+        arr.fill('a', 1, 3);
+        console.log(arr);
+
+        //copyWithin()
+        let arr2 = [1, 2, 3, 4, 5];
+        arr2.copyWithin(0, 2, 4); //用2-4的数填充第0个位置
+        console.log(arr2); //[3, 4, 3, 4, 5]
+
+        //find()
+        let res = [1, 2, 3].find(item => item > 2); //数组中大于2的数是什么？
+        console.log(res);
+
+        //findIndex()
+        let res1 = [1, 2, 3].findIndex(item=>item > 1); //数组中第一个大于1的数的下标
+        console.log(res1);
+
+        //some()
+        let res2 = [1, 2, 3].some(item => item > 1); //数组中有数大于1吗？
+        console.log(res2);
+
+        //every()
+        let res3 = [1, 2, 3].every(item => item > 1); //数组中每一个数都大于1吗？
+        console.log(res3);
+
+
+    </script>
+
+</body>
+</html>

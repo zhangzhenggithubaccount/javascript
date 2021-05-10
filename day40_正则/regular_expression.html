@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //正则表达式 regular expression(RE)
+        let rex = new RegExp(/^\d*.\d*$/ig);
+        console.log(rex.test('12.32'));
+        console.log(rex.test('324.33e'));
+
+        let rex2 = /\d*[,.]/ig;
+        console.log(rex2.test('2,34.3'));
+        console.log(rex2.test('2,34.3'));
+        console.log(rex2.test('2,34.3'));
+
+    </script>
+
+</body>
+</html>

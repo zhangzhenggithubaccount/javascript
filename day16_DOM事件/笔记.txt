@@ -1,0 +1,15 @@
+ES(ECMAScript) + DOM(Document Object Model) + BOM(Browser Object Model)
+
+1 DOM 文档对象模型 Document object Model
+dom树
+           html
+            |
+    head         body
+     |            |
+ meta title      div
+
+2 事件------行为
+三要素 事件类型(具体什么行为)、事件源(谁身上发生了该行为)、事件处理
+
+js程序如何处理事件
+    事件源.事件 = 事件处理函数

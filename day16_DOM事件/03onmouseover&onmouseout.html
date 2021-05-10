@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        ul,ol {
+            list-style: none;
+        }
+
+        .nav li{
+            width: 60px;
+            height: 30px;
+            line-height: 30px;
+            float: left;
+            cursor: pointer;
+        }
+        #submenu {
+            display: none;
+        }
+
+    </style>
+    <script>
+
+        onload = () => {
+
+            let item = document.getElementById("item");
+            let submenu = document.getElementById("submenu");
+
+            item.onmouseover = () => {
+                submenu.style.display = "block";
+            }
+            item.onmouseout = () => {
+                submenu.style.display = "none";
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+    <ul class="nav">
+        <li>首页</li>
+        <li>新闻</li>
+        <li id="item">产品
+            <ol id="submenu">
+                <li>电脑</li>
+                <li>手机</li>
+            </ol>
+        </li>
+    </ul>
+</body>
+</html>

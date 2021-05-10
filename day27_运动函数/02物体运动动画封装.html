@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #item {
+            width: 20px;
+            height: 20px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="item"></div>
+
+    <script>
+
+        let item = document.getElementById('item');
+        
+        item.addEventListener('mouseenter', function() {
+            animate(item, 200);
+        });
+        item.addEventListener('mouseleave', function() {
+            clearInterval(item.timer);
+        });
+
+        function animate(obj, target) {
+            if (obj.timer) {
+                clearInterval(obj.timer);
+            }
+            obj.timer = setInterval(function() {
+                let step = (target - obj.offsetWidth) / 10
+                if (obj.offsetWidth >= target) {
+                    return clearInterval(obj.timer);
+                }
+                obj.style.width = obj.offsetWidth + step + 'px';
+            }, 30);
+        }
+
+    </script>
+
+</body>
+</html>

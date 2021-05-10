@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="button" value="验证码" class="token"/>
+
+    <script>
+
+        let btn = document.querySelector('.token');
+        let countDown = 10;
+        btn.addEventListener('click', function() {
+            if(btn.timer){
+                clearInterval(btn.timer);
+            }else {
+                this.value = '剩余时间:' + countDown + '秒';
+                countDown--;
+            }
+            btn.timer = setInterval(function() {
+                if(countDown <= 0) {
+                    this.value = '验证码';
+                    countDown = 10;
+                    clearInterval(btn.timer);
+                }else {
+                    this.value = '剩余时间:' + countDown + '秒';
+                    countDown--;
+                }
+            }.bind(btn), 1000);
+        });
+
+    </script>
+
+</body>
+</html>

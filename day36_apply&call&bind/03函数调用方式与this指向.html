@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="button" value="按钮" class="btn">
+
+    <script>
+        //其是window属性 window.fn 故this->window
+        function fn() {
+            console.log(this);
+            console.log('普通函数调用...');
+        }
+
+        fn();
+
+        //对象内函数调用 其是obj对象内属性 故this->obj
+        let obj = {
+            fn1: function() {
+                console.log(this);
+                console.log('对象内函数调用...');
+            }
+        }
+        obj.fn1();
+
+        //构造函数 对象构建过程
+        //    1. 生成空的对象{}
+        //    2. 将this指向{} this = {}
+        //    3. 执行函数体
+        //    4. 返回对象
+        //故this是值新生成的对象
+        function Student() {
+            console.log(this);
+            console.log('构造函数调用...');
+        }
+        new Student();
+
+        //事件函数调用 onclick是dom对象的属性 故this->btn
+        let btn = document.querySelector('.btn');
+        btn.onclick = function() {
+            console.log(this);
+        }
+        btn.click();
+
+        //内置函数调用this this指向内置函数拥有对象 this->window
+        setTimeout(function() {
+            console.log(this);
+        },100);
+
+        //直接执行匿名函数 其内部this指向window
+        (function() {
+            console.log(this);
+        })();
+    </script>
+
+</body>
+</html>

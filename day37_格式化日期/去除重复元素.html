@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        Array.prototype.uniq = function () {
+            let res = [];
+            let flag = true;
+
+            for(let i = 0; i < this.length; i++) {
+                if (res.indexOf(this[i]) === -1) {
+                    if (this[i] != this[i]) {
+                        if (flag) {
+                            res.push(this[i]);
+                            flag = false;
+                        }
+                    }else {
+                        res.push(this[i]);
+                    }
+                }
+            }
+            return res;
+        }
+
+        function valid1() { 
+            var a = [true, false, null, undefined, NaN, 0, 1, {}, {}, 'a', 'a', NaN].uniq(); 
+            return a.length === 10 && a[1] === false && a[0] === true && a[3] === undefined && a[2] === null && isNaN(a[4]); 
+        }
+        function valid2() { 
+            var a = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].uniq(); 
+            return a.length === 1 && a[0] === 1; 
+        }
+
+        console.log(valid1());
+        console.log(valid2());
+    </script>
+
+</body>
+</html>

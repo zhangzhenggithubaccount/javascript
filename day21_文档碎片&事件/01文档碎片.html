@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //3ms - 7ms
+        function createElementMethod() {
+            for(let i = 0; i < 1000; i++) {
+                let btn = document.createElement("input");
+                btn.type = 'button';
+                btn.value = '按钮';
+                document.body.appendChild(btn); 
+            }
+        }
+
+        // 2ms - 5ms
+        function createStrMethod() {
+            let htmlStr = "<input type='button' value='按钮' />".repeat(1000);
+            document.body.innerHTML = htmlStr;
+        }
+
+        //3ms-6ms
+        function createFragment() {
+            let cache = document.createDocumentFragment();
+
+            for(let i = 0; i < 1000; i++) {
+                let btn = document.createElement("input");
+                btn.type = 'button';
+                btn.value = '按钮';
+                cache.appendChild(btn);
+            }
+            document.body.appendChild(cache); 
+        }
+
+        //3ms - 7ms
+        let start = new Date();
+        //createElementMethod(); //3ms - 7ms
+        //createStrMethod(); //2ms - 5ms
+        createFragment(); //3ms - 6ms
+        let end = new Date();
+        console.log(end - start);
+
+    </script>
+
+</body>
+</html>

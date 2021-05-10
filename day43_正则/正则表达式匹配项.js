@@ -1,0 +1,1 @@
+console.log('bar foo bar foo'.replace(/(bar) (foo) \1 \2/, '$2 $1 $2 $1'));

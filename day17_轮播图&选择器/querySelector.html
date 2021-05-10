@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="nav">
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+    </ul>
+
+    <script>
+
+        let nav = document.querySelector("#nav");
+        console.log(nav);
+
+        console.log(nav.getElementsByTagName("li").length);
+        console.log(nav.getElementsByClassName("item").length);
+
+        let item = document.querySelectorAll(".item")
+        console.log(item);
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            margin-bottom: 10px;
+        }
+        #item {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <button id="forward">向前100</button>
+        <button id="backward">后退100</button>
+        <button id="circle">循环</button>
+    </div>
+    <div id="item"></div>
+
+    <script>
+        let item = document.getElementById('item');
+        let forward = document.getElementById('forward');
+        let backward = document.getElementById('backward');
+        let circle = document.getElementById('circle');
+        
+        forward.addEventListener('click', function() {
+            animate(item, 100);
+        });
+        backward.addEventListener('click', function() {
+            animate(item, 0);
+        });
+        circle.addEventListener('click', function() {
+            animate(item, 100, function() {
+                animate(item, 0);
+            })
+        });
+
+        function animate(obj, target, callback) {
+            if (obj.timer) {
+                clearInterval(obj.timer);
+            }
+            obj.timer = setInterval(function() {
+                let step = (target - obj.offsetLeft) / 10;
+                step = step > 0? Math.ceil(step) : Math.floor(step);
+                if (obj.offsetLeft === target) {
+                    clearInterval(obj.timer);
+                    if (callback) {
+                        callback();
+                    }
+                    return;
+                }
+                obj.style.left = obj.offsetLeft + step + 'px';
+
+            }, 30);
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        var arr = [10, 12, 2, 6, 18, 3, 7, 9];
+        arr.sort(function(a, b) {
+            return a - b;
+        });
+        console.log(arr);
+
+        //对对象中的number进行排序
+        var students = [
+            {name: 'Jack', age: 16, height: 180},
+            {name: 'Tom', age: 14, height: 168},
+            {name: 'Phil', age: 18, height: 171}
+        ];
+
+        function compareFn(prop) {
+            return function(a, b) {
+                var v1 = a[prop];
+                var v2 = b[prop];
+                return v1 - v2;
+            }
+        }
+
+        students.sort(compareFn('age'));
+
+        console.log(students);
+
+        // students.sort(compareFn('height'));
+
+        // console.log(students);
+
+    </script>
+
+</body>
+</html>

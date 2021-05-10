@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container {
+        width: 400px;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+    }
+
+    .select {
+        float: left;
+        display: block;
+        width: 100px;
+        height: 50px;
+        border: 1px solid skyblue;
+        box-sizing: border-box;
+        line-height: 50px;
+        text-decoration: none;
+        color: #000;
+    }
+    .clear {
+        clear: both;
+    }
+
+    .info {
+        float: left;
+        display: none;
+        width: 400px;
+        height: 400px;
+        border: 1px solid skyblue;
+        box-sizing: border-box;
+        line-height: 400px;
+        font-size: 48px;
+        font-weight: 700;
+        position: absolute;
+    }
+
+    .selectActive{
+        background-color: skyblue;
+        color: #fff;
+    }
+
+    .infoActive {
+        display: block;
+    }
+
+</style>
+<body>
+    
+    <div class="container">
+
+        <a href="javascript:" class="select">1</a>
+        <a href="javascript:" class="select">2</a>
+        <a href="javascript:" class="select">3</a>
+        <a href="javascript:" class="select">4</a>
+        <div class="clear"></div>
+        <div class="info">1</div>
+        <div class="info">2</div>
+        <div class="info">3</div>
+        <div class="info">4</div>
+
+    </div>
+    <script>
+
+        function $(select) {
+            return document.querySelectorAll(select);
+        }
+
+        function show(select, info, idx) {
+            //排他法
+            for(let i = 0; i < info.length; i++) {
+                info[i].classList.remove("infoActive");
+                select[i].classList.remove("selectActive");
+            }
+            info[idx].classList.add("infoActive");
+            select[idx].classList.add("selectActive");
+        }
+
+        let info = $(".info");
+        let select = $(".select");
+
+        for(let i = 0; i < select.length; i++) {
+            select[i].idx = i;
+            select[i].onclick = function() {
+                console.log(this.idx);
+                show(select, info, this.idx);
+            }
+        }
+
+        show(select, info, 0);
+        
+    </script>
+</body>
+</html>

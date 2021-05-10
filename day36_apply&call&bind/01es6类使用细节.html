@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="button" value="按钮" class="btn"/>
+
+    <script>
+        /*
+            es6类没有变量提升，所以必须先定义类，后实例化对象。
+        */
+       
+        let _this_;
+        class Student {
+            constructor(name, age) {
+                _this_ = this;
+                this.name = name;
+                this.age = age;
+                this.btn = document.querySelector('.btn');
+                //this.btn.onclick = ()=>{this.study.call(this)};
+                //this.btn.onclick = ()=>{this.study.apply(this)};
+                this.btn.onclick = this.study.bind(this);
+            }
+            study() {
+                console.log(this);
+                console.log(this.name + 'study...');
+            }
+        }
+
+        let std = new Student('Jack', 12);
+        console.log(_this_ === std);
+        
+        //箭头函数 ()=>{} 没有this
+        //call(obj, arg1, arg2, ...) 改变函数this 并调用
+        //apply(obj, [arg1, arg2, ...]) 改变函数this 并调用
+        //bind(obj) 改变函数this 未调用
+
+    </script>
+
+</body>
+</html>

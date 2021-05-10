@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="box"></div>
+
+    <script>
+
+        let box = document.getElementById('box');
+
+        //获取obj元素的attr属性
+        function getStyle(obj, attr) {
+            return window.getComputedStyle(obj, false)[attr];
+        }
+
+        //动画
+        function animate(obj, target, callback) {
+            if (obj.timer) {
+                clearInterval(obj.timer);
+            }
+            obj.timer = setInterval(function() {
+                
+                for(let attr in target) {
+                    let current;
+                    if(attr === 'opacity') {
+                        current = parseFloat(getStyle(obj, attr)) * 100;
+                    }else {
+                        current = parseFloat(getStyle(obj, attr));
+                    }
+                    let tgt = target[attr];
+                    let step = parseFloat((tgt - current) / 10);
+                    step = step>0? Math.ceil(step): Math.floor(step);
+                    if (current === tgt) {
+                        clearInterval(obj.timer);
+                        if (callback) {
+                            callback();
+                        }
+                    }else {
+                        if (attr === 'opacity') {
+                            obj.style[attr] = (current + step) / 100;
+                        }else {
+                            obj.style[attr] = current + step + 'px';
+                        }
+                        
+                    }
+                }
+            }, 30);
+        }
+
+        box.addEventListener('mouseenter', function() {
+            animate(box, {'width': 200, 'height': 200, 'opacity' : 40}, function() {
+                animate(box, {'width': 100, 'height': 100, 'opacity' : 100}, function() {
+                    animate(box, {'width': 200, 'height': 200, 'opacity' : 40})
+                });
+            });
+        });
+
+        box.addEventListener('mouseleave', function() {
+            animate(box, {'width': 100, 'height': 100, 'opacity' : 100});
+        });
+
+    </script>
+
+</body>
+</html>

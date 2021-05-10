@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="time"></div>
+
+    <script>
+
+        function getTime() {
+            var week = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+            var t = new Date();
+            var y = t.getFullYear();
+            var m = (t.getMonth() + 1).toString().padStart(2, 0); //0-11
+            var d = t.getDate().toString().padStart(2, 0);
+
+            var h = t.getHours().toString().padStart(2, 0);
+            var M = t.getMinutes().toString().padStart(2, 0);
+            var D = t.getSeconds().toString().padStart(2, 0);
+
+            var w = week[t.getDay()]; // 0-6
+
+            t_s = y + "年" + m + "月" + d + "日" + " ";
+            t_s += h + "时" + M + "分" + D + "秒" + " ";
+            t_s += w;
+
+            return t_s;
+        }
+
+        var t_p = document.getElementById("time");
+        var time = getTime();
+        t_p.innerHTML = time;
+        setInterval(function (){
+            t_p.innerHTML= "";
+            time = getTime();
+            console.log(time);
+            t_p.innerHTML = time;
+        }, 1000);
+
+    </script>
+</body>
+</html>

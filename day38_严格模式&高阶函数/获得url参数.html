@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function getUrlParam(sUrl, sKey) {
+            let args = sUrl.split('?')[1].split('#')[0].split('&');
+            if(sKey) {
+                let res = [];
+                for(let i = 0; i < args.length; i++) {
+                    let arg = args[i].split('=');
+                    if(arg[0] === sKey) {
+                        res.push(arg[1]);
+                    }
+                }  
+                if(res.length === 0) {
+                    return '';
+                }else {
+                    return res.length === 1? res[0]: res;
+                }
+            }else {
+                let res = {};
+                for(let i = 0; i < args.length; i++) {
+                    let arg = args[i].split('=');
+                    if (arg[0] in res) {
+                        if(typeof res[arg[0]] !== 'object') {
+                            let temp = res[arg[0]];
+                            res[arg[0]] = [];
+                            res[arg[0]].push(temp);
+                            res[arg[0]].push(arg[1]);
+                        }else {
+                            res[arg[0]].push(arg[1]);
+                        }
+                    }else {
+                        res[arg[0]] = arg[1];
+                    }
+                    
+                } 
+                return res;
+            } 
+        }
+
+        function valid2() { 
+            var a = getUrlParam('http://www.nowcoder.com?key=1&key=2&key=3&test1=4#hehe', 'test1');
+            console.log(a);
+            return a === '4'; 
+        }
+        valid2();
+        function valid3() { 
+            var a = getUrlParam('http://www.nowcoder.com?key=1&key=2&key=3&key=4&test1=4#hehe');
+            console.log(a);
+            return a.key.join('') === '1234'; 
+        }
+        valid3();
+        function valid4() { 
+            var a = getUrlParam('http://www.nowcoder.com?key=1&key=2&key=3&key=4&test1=4#hehe', 'abc'); 
+            console.log(a);
+            return a === ''; 
+        }
+        valid4();
+    </script>
+
+</body>
+</html>

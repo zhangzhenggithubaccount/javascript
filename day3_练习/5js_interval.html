@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        function count(start, end) {
+
+            console.log("strat:" + start++);
+            //setInterval用法
+            var timer = setInterval (function() {
+                if(start <= end) {
+                    console.log("duration:" + start++);
+                }else {
+                    clearInterval(timer);
+                }
+                }, 100);
+            return {
+                cancel: function() {
+                    console.log("stop");
+                    clearInterval(timer);
+                }
+            };
+        }
+
+        var cancel = count(0, 100);
+        //setTimeout用法
+        setTimeout(cancel.cancel, 3000);
+    </script>
+</body>
+</html>

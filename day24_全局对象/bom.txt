@@ -1,0 +1,46 @@
+JS -> ES + DOM + BOM
+1 ES(ECMAScript) ECMA标准
+2 DOM(Document Object Model) W3C标准
+3 BOM(Browser Object Model) 
+
+1. BOM简介
+    Browser object Model核心是window
+    DOM vs BOM
+    DOM把网页看作对象 document是顶级对象
+    BOM把浏览器看作对象 window是顶级对象
+2. window对象（定时器）
+    1. js访问浏览器窗口的一个接口
+    2. 全局对象 定义在全局作用域中的变量或函数自动变成window对象属性和方法
+    3. window中存在属性name
+3. 页面加载事件
+    window.onload = function() {}
+    窗口加载事件 指的是文档内容完全加载（图片、脚本、css等）完成触发事件
+    DOMContentLoaded DOM加载完毕 不包含样式 图片 flash等
+
+    窗口大小事件 window.onresize = function() {}
+
+    定时器
+    window.setTimeout(函数， 延时时间)
+    clearTimeout(timeoutID)
+    window.setInterval(...) /clearInterval()
+    window.setTimeout(...)/clearTimeout()
+4. location对象/navigator对象/history对象
+    window.navigator对象
+        navigator.userAgent -> 返回用户设备类型信息
+    window.history对象
+        history.back() 后一个页面
+        history.forword() 前一个页面
+        history.go() 回到历史某个页面 1代表前1个页面 -1代表后一个页面
+    window.location对象
+        URL Uniform Resource Locator
+        1). location属性
+            href 获取或设置整个url
+            host 获取host地址
+            search 获取参数
+        2). location方法
+            assign() 和href一样
+            replace() 替换当前页面 不能后退页面，因为不记录历史。
+            reload() 重新加载页面
+
+
+

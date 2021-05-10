@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .element {
+            float: left;
+            border: 1px solid skyblue;  
+            width: 120px;
+            text-align: center;
+            font-weight: 700;
+        }
+        .clear {
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <script>
+
+        function multiTable(n) {
+
+            document.write("<div>");
+            for(var i = 1; i <= n; i++) {
+                for(var j = i; j <= n; j++) {
+                    document.write("<div class='element'>" + i + " × " + j + " = " + i * j + "</div>");
+                }
+                document.write("<div class='clear'></div>")
+            }
+            document.write("<div>");
+
+        }
+        multiTable(9);
+        multiTable(15);
+    </script>
+</body>
+</html>

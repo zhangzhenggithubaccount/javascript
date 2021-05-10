@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //startwith 以某字符串开头
+        let url = 'https://www.baidu.com';
+        let isUrl = url.startsWith('https');
+        console.log(isUrl);
+
+        //endswith 以某字符串结尾
+        let imgName = '2.png';
+        let isImg = imgName.endsWith('png');
+        console.log(isImg);
+
+        //includes 包含某字符串
+        console.log('along666'.includes('long'));
+
+        //repeat 重复字符串
+        console.log('abc'.repeat(3));
+
+        //padStart 填充字符串 从头填充
+        console.log('0'.padStart(2, 1));
+
+        //padEnd 填充字符串 从尾填充
+        console.log('0'.padEnd(2,1));
+
+    </script>
+
+</body>
+</html>

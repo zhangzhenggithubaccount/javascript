@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let emial = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+        let rex1 = /([-+.]\w+)+/;
+        console.log(rex1.test('.edu.cn'));
+
+        let rex2 = /[\w\._\+\-]+/;
+        console.log(rex2.test('est'));
+        console.log(rex2.test('est.i.ng'));
+        console.log(rex2.test('est.i.ng'));
+
+        let rex3 = /@\w+/g;
+        console.log(rex3.test('@q@c'));
+        console.log(rex3.test('@q@c '));
+        
+        let email1 = /^([\w\-\+_.])+@([\w\-\+_.])+(.\w+)+$/;
+        console.log(email1.test('abc+.-de@q_.q.com'));
+        
+        let email2 = /^([\w._\-\+])+@([\w._\-\+])+(.[\w_\-\+]+)+$/;
+        console.log(email2.test('abc+.-de@q_._q.com'));
+
+        let rg = /^\w+([-+]\w+)*@\w+(.[-+]?\w+)*$/;
+        console.log(rg.test('abc+.-de@q_._q.com'));
+
+    </script>
+
+</body>
+</html>

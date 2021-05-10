@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        let obj1 = {
+            a: 10,
+            b: 20,
+            c: {
+                d: 30,
+                f: [1, [2, 3]]
+            },
+            e: function() {
+                console.log('1');
+            }
+        };
+
+        let target = {};
+        //浅拷贝
+        function shallowCopy(target, source) {
+            for(let item in source) {
+                target[item] = source[item];
+            }
+        }
+        //shallowCopy(target, obj1);
+        //console.log(target);
+        //console.log(target.c === obj1.c);
+
+        //深拷贝
+        function deepCopy(target, source) {
+            for(let item in source) {
+                if(source[item] instanceof Array) {
+                    target[item] = [];
+                    arguments.callee(target[item], source[item]);
+                }else if(source[item] instanceof Function) {
+                    target[item] = new Function();
+                    arguments.callee(target[item], source[item]);
+                }else if(source[item] instanceof Object){
+                    target[item] = {};
+                    arguments.callee(target[item], source[item]);
+                }else {
+                    target[item] = source[item];
+                }
+            }
+        }
+
+        deepCopy(target, obj1);
+        console.log(target);
+        console.log(target.c);
+        console.log(target.c === obj1.c);
+        console.log(target.e === obj1.e);
+
+    </script>
+
+</body>
+</html>

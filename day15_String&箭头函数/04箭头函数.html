@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //1. 默认参数
+        let fn = (a = 0, b = 0) => a+b;
+
+        console.log(fn(5));
+
+        //2. 剩余运算符
+        let fn2 = (c, ...d) => {
+            console.log(d instanceof Array);
+            console.log(c, d);
+        };
+
+        fn2(1, 2, 3, 4, 5)
+        //3. 箭头函数
+        //当函数体只有一条返回语句，大括号和return都可以省略
+        //输入参数多于一个，则用()包起来，函数体假如有多条语句需要用{}
+        let arrow = (a = 0, b = 0) => a + b;
+        console.log(arrow(5, 4));
+        [1, 2, 3].forEach(item => console.log(item));
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul class="nav">
+        <li>0</li>
+        <li>1</li>
+        <li>2</li>
+    </ul>
+
+    <script>
+
+        // 单击li 打印每个li的序号
+        let lis = document.querySelector('.nav').querySelectorAll('li');
+        // 思路一 动态添加属性
+        /*
+        for(var i = 0; i < lis.length; i++) {
+            lis[i].idx = i;
+            lis[i].addEventListener('click', function() {
+                console.log(this.idx); //注意 this不能写成 lis[i]
+            });
+        }
+        */
+        // 思路二 闭包
+        /*for(var i = 0; i < lis.length; i++) {
+            (function(e) {
+                lis[i].addEventListener('click', function() {
+                    console.log(e);
+                });
+            })(i);
+        }
+        */
+       //思路三 let 块作用域
+       for(let i = 0; i < lis.length; i++) {
+            lis[i].addEventListener('click', function() {
+                console.log(i);
+            });
+       }
+        
+
+    </script>
+
+</body>
+</html>

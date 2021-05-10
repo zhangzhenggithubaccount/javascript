@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 滴滴打车 3公里以内 14 每增加1公里收5元
+        // 堵车 在原来收费上多收5元
+        let c = (function() {
+
+            let base = 14;
+            let sum = 0;
+
+            return {
+                normal: function(n) {
+                    if (n-3 > 0) {
+                        sum = base + (n - 3) * 5;
+                    }else {
+                        sum = base;
+                    }
+                },
+                addPrime: function(flag) {
+                    return flag?(sum + 5): sum;
+                }
+            };
+
+        })();
+
+        c.normal(3);
+        console.log(c.addPrime(true));
+
+    </script>
+
+</body>
+</html>

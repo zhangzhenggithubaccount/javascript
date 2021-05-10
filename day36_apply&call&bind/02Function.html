@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //Function 中的参数都是字符串形式
+        let fn = new Function('a', 'b', 'console.log(a + b)');
+        fn(1, 1);
+
+        console.log(fn.__proto__ === Function.prototype);
+
+        fn.index = 10;
+        console.log(fn.index);
+
+    </script>
+
+</body>
+</html>

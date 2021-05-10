@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button id="btn">按钮</button>
+    <button id="remove">解绑</button>
+
+    <button id="btn1">按钮1</button>
+    <button id="remove1">解绑1</button>
+
+    <script>
+        //DOM0级 事件解绑 dom.onclick = null
+        let btn = document.getElementById("btn");
+        btn.onclick = function() {
+            console.log('1');
+        }
+
+        let remove = document.getElementById("remove");
+        remove.onclick = function() {
+            console.log('2');
+            btn.onclick = null;
+        }
+        //addEventListener解除事件 removeEventListener
+        let btn1 = document.getElementById("btn1");
+        let remove1 = document.getElementById("remove1");
+
+        btn1.addEventListener('click', fn1);
+        btn1.addEventListener('click', fn2);
+
+        remove1.addEventListener('click', function() {
+            btn1.removeEventListener('click', fn1);
+        });
+
+        function fn1() {
+            console.log('1');
+        }
+        function fn2() {
+            console.log('2');
+        }
+
+        //attachEvent解除事件 detachEvent
+
+    </script>
+
+</body>
+</html>

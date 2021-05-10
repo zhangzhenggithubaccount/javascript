@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        function findAllOccurrences(arr, target) {
+            return arr.map(
+                function (item, index){
+                    // if(e === target) {
+                    //     return index;
+                    // }
+                    return item === target? index: -1;
+                }
+            ).filter(
+                function(item) {
+                    // return item !== undefined;
+                    return item !== -1;
+                }
+            );
+        }
+
+        console.log(findAllOccurrences(['a','b','c','d','e','f','a','b','c'], 'a'));
+
+    </script>
+</body>
+</html>

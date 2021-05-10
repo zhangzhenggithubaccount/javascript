@@ -1,0 +1,73 @@
+事件
+1 注册事件
+    注册事件/绑定事件
+    DOM0级 特点 相同事件绑定 后面函数会覆盖前面的
+        onclick
+    DOM2级
+        addEventListener()
+        1、第一个参数是字符串，表示事件类型（不带on）
+        2、第二个参数是事件处理函数
+        3、特点：同一个元素可以绑定相同的事件 不会冲突
+
+2 删除事件
+    1) DOM0级 -> dom.onevent = null删除
+    2) addEventListener添加的事件->通过removeEventListener删除
+    3) attachEvent添加的事件->通过detachEvent删除
+
+3 DOM事件流（从页面中接受事件的顺序）
+    <html>                                             html
+        <body>                                          |
+            <outer>                                 body  head
+                <inner></inner>                      |
+            </outer>                                outer
+        </body>                                      |
+    </html>                                         inner
+                              当前目标阶段
+    document->html->body->outer->inner->outer->body->html->document
+    |-----------捕获阶段------------|-----------冒泡阶段------------|
+    注：DOM0级/attachEvent 只能得到冒泡阶段（提前捕获DOM对象节点）
+        DOM2级 addEventListener 第三个参数为true时事件发生时捕获DOM对象节点
+        *有的事件不具有冒泡、focus/blur、mouseenter/mouseleave等
+    单击元素的同时，也单击了元素的容器元素，甚至整个页面。
+    冒泡型事件流：事件的传播是从最特定的事件目标到最不特定的事件目标。即从DOM树的叶子到根。
+    捕获型事件流：事件的传播是从最不特定的事件目标到最特定的事件目标。即从DOM树的根到叶子。
+4 事件对象
+    event是事件对象 ie6-8通过window.event来获取事件对象
+    window.event
+        
+        1. target（事件目标）、type（事件类型）
+            
+        2. preventDefault() -> DOM2级
+           return false -> DOM0级 阻止默认行为，且没有兼容性问题。
+           returnValue（阻止默认行为）
+        3. 阻止冒泡
+           stopPropagation()（阻止冒泡）
+           cancleBubble = true（ie6-8阻止冒泡）
+
+        属性：screenX/screenY 屏幕位置
+            clientX/clientY 浏览器位置
+            pageX/pageY 网页位置
+        
+5 事件冒泡
+    
+6 事件委托(事件代理、事件委派)
+    核心给父元素绑定事件 只操作一次DOM 提高程序性能
+7 常用鼠标或键盘事件
+    e.target
+    鼠标事件：
+        mousemove 鼠标移动事件
+        mouseover/mouseout 鼠标移入移出事件
+        mouseenter/mouseleave 鼠标移入移出事件
+        focus/blur 鼠标聚焦失焦事件
+        mousedown/mouseup 鼠标按下松开事件
+        contextmenu 右键菜单
+8 键盘事件
+    通过keyCode得到对应键的ASCII值
+    在keyup/keydown中不区分大小写
+    在keypress中区分大小写
+    keyup
+    keydown
+    keypress
+9 键盘事件对象
+    key
+    keyCode

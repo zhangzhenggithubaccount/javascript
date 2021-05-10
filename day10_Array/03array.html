@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //push 后插
+        var arr = [0, 1, 2];
+        res_push = arr.push(3); //返回新长度
+        console.log(arr);
+        console.log(res_push);
+
+        //unshift 前插
+        res_unshift = arr.unshift(-1); //返回新长度
+        console.log(arr);
+        console.log(res_unshift); 
+
+        //pop 后删
+        res_pop = arr.pop(); //返回被删除元素
+        console.log(arr);
+        console.log(res_pop);
+
+        //shift 前删
+        res_shift = arr.shift(); //返回被删除元素
+        console.log(arr);
+        console.log(res_shift);
+
+        //splice 添加-2,-3
+        res_splice_append = arr.splice(0, 0, -2, -3); //返回被删除元素集合
+        console.log(arr);
+        console.log(res_splice_append);
+
+        //splice 删除-2, -3
+        res_splice_delete = arr.splice(0, 2); //返回被删除元素集合
+        console.log(arr);
+        console.log(res_splice_delete);
+
+        //slice 复制array
+        var arr2 = arr.slice(1, arr.length);
+        console.log(arr);
+        console.log(arr2);
+
+    </script>
+</body>
+</html>

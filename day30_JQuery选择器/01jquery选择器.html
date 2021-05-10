@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../day29/js/jquery.min.js"></script>
+</head>
+<body>
+    
+    <ul>
+        <li class="first">ul item1</li>
+        <li>ul item2</li>
+        <li>ul item3</li>
+        <li>ul item4</li>
+        <li>ul item5</li>
+    </ul>
+
+    <ol>
+        <li>ol item1</li>
+        <li>ol item2</li>
+        <li>ol item3</li>
+        <li>ol item4</li>
+        <li>ol item5</li>
+    </ol>
+
+    <script>
+
+        //parent()
+        console.log($('.first').parent());
+        //children()
+        console.log($('ul').children('li'));
+        //find()
+        console.log($('ul').find('.first'));
+        //siblings()
+        console.log($('.first').siblings('li').css('fontSize', '18px'));
+        //prevAll() eq()
+        console.log($('ul li').eq(2).prevAll());
+        //nextAll()
+        console.log($('ul li').eq(2).nextAll());
+        //hasClass()
+        console.log($('ul li').eq(0).hasClass('first'));
+
+    </script>
+
+</body>
+</html>

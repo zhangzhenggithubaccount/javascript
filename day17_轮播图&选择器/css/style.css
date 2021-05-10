@@ -1,0 +1,66 @@
+.container {
+    width: 1226px;
+    height: 460px;
+    margin: 0 auto;
+    position: relative;
+}
+#picture {
+    width: 1226px;
+    height: 460px;
+    -webkit-transition: 1s ease-in-out;
+    -moz-transition: 1s ease-in-out;
+    -o-transition: 1s ease-in-out;
+    transition: 1s ease-in-out;
+}
+
+#prev {
+    width: 41px;
+    height: 69px;
+    position: absolute;
+    background: url(../image/icon-slides.png) no-repeat -84px 0px;
+    left: 0;
+    top: 50%;
+    margin-top: -35px;
+}
+#prev:hover {
+    background: url(../image/icon-slides.png) no-repeat 0px 0px;
+}
+#next {
+    width: 41px;
+    height: 69px;
+    position: absolute;
+    background: url(../image/icon-slides.png) no-repeat -126px 0px;
+    right: 0;
+    top: 50%;
+    margin-top: -35px;
+}
+#next:hover {
+    background: url(../image/icon-slides.png) no-repeat -42px 0px;
+}
+
+#picNum {
+    position: absolute;
+    text-align: right;
+    right: 30px;
+    bottom: 20px;
+    width: 200px;
+    height: 20px;
+}
+
+.bullet {
+    width: 10px;
+    height: 10px;
+    margin: 0 4px;
+    display: inline-block;
+    border: 3px solid #fff;
+    border-color: rgba(255, 255, 255, .3);
+    border-radius: 10px;
+    background: rgba(0, 0, 0, .4);
+    opacity: 1;
+    cursor: pointer;
+}
+
+.bullet:hover, .bullet_hover{
+    background:rgba(255, 255, 255, .4);
+    border-color:rgba(0, 0, 0, .4);
+}

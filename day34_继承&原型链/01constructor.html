@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        
+        function Student(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        Student.dance = function() {
+            console.log('dance...');
+        }
+
+        Student.prototype.breath = function() {
+            console.log('breath...');
+        }
+
+        let stu1 = new Student('jack', 22);
+
+        console.log('Student.prototype.constructor === stu1.constructor: ');
+        console.log(Student.prototype.constructor === stu1.constructor);
+        console.log(Student.prototype);
+
+        Student.prototype = {
+            constructor: Student,
+            study: function() {
+                console.log(this);
+                console.log('good good study');
+            },
+            run: function() {
+                console.log('running...');
+            }
+        }
+
+        console.log(Student.prototype);
+
+
+    </script>
+
+</body>
+</html>

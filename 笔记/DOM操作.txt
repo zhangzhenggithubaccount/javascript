@@ -1,0 +1,39 @@
+DOM document object model
+1 创建节点
+    document.write()
+    innerHTML
+    document.createElement()
+2 增加节点
+    insertBefore()
+    appendChild()
+3 删除节点
+    removeChild()
+    remove()
+4 修改节点
+    修改元素属性：
+        src/href/title（标准属性）
+        setAttribute/getAttribute/removeAttribute
+    修改元素内容：
+        innerHTML/innerText
+    修改表单元素：
+        value/type/disabled/checked
+    修改元素样式：
+        style
+        className
+        classList.add()
+        classList.remove()
+5 查找
+    1 api
+    2 h5新增api
+    3 关系属性
+        parentNode
+        children
+        previousElementSibling
+        nextElementSibling
+6 事件操作
+    事件源.事件 = 事件处理函数
+    onclick
+    onmouseover/onmouseout
+    onfocus/onblur
+    onmousedown
+    ...

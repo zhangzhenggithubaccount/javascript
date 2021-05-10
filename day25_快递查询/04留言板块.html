@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 800px;
+            margin: 0 auto;
+        }
+        #message {
+            width: 800px;
+        }
+        .messageItem {
+            width: 800px;
+            margin: 10px 0;
+            padding: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.4);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        #comment span {
+            display: block;
+            float: left;
+            width: 80px;
+            height: 160px;
+            line-height: 160px;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        #inputMessage {
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="box">
+        <div id="message">
+        </div>
+        <div id="comment">
+            <span>留言：</span>
+            <textarea id="inputMessage" cols="30" rows="10"></textarea>
+            <input type="button" id="sub" value="提交"/>
+        </div>
+    </div>
+
+    <script>
+        function $(id) {
+            return document.getElementById(id);
+        }
+        function create(tagName) {
+            return document.createElement(tagName);
+        }
+
+        let sub = $('sub');
+        let message = $('message');
+        sub.addEventListener('click', function() {
+            let sub = $('inputMessage');
+            if (sub.value) {
+                let div = create('div');
+                div.className = 'messageItem';
+                div.innerHTML = sub.value;
+                message.appendChild(div);
+            }
+        });
+
+    </script>
+</body>
+</html>

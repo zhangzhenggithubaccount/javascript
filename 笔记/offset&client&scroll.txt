@@ -1,0 +1,31 @@
+offset系列
+    el.offsetParent
+        表示元素中带有最近定位的祖先元素，祖先元素都没有定位则返回body
+    el.offsetTop
+        表示元素距离其offsetParent上方的偏移
+    el.offsetLeft
+        表示元素距离其offsetParent左边的偏移
+    el.offsetWidth
+        元素实际宽度 border+padding+width
+        当box-sizing:border;时实际宽度为width
+    el.offsetHeight
+        元素实际高度 border+padding+heigth
+        当box-sizing:border;时实际宽度为heigth
+    
+        offset      vs      style
+1 获得的数据没有单位        带单位的字符串
+2 得到任意样式表样式        只获取行内样式
+3 offsetWidth包含三部分    style.width只包含width
+4 offsetWidth只读属性      style.width可以读写
+
+client系列
+    el.clientTop 元素content top距离（包含border）
+    el.clientLeft 元素content left距离（包含border）
+    el.clientWidth 元素content宽带（不包含border）
+    el.clientHeight 元素content高度（不包含border）
+
+scroll系列
+    el.scrollTop 元素content top距离（不包含border）
+    el.scrollLeft 元素content left距离（不包含border）
+    el.scrollWidth 元素content宽带
+    el.scrollHeight 元素content高度
